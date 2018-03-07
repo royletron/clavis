@@ -18,48 +18,28 @@ layout: default
 <section class="section">
   <div class="container">
     <div class="content">
-      {% for term in site.glossary %}
+      {% assign sorted = site.glossary | sort:"title" %}
+      {% for term in sorted %}
         <article class="media">
           <figure class="media-left">
-            <p class="image is-64x64">
-              <img src="https://bulma.io/images/placeholders/128x128.png">
+            <p id="img_{{term.title | slugify}}" class="image is-64x64">
             </p>
+            <script>
+              $('#img_{{term.title | slugify}}').geopattern('{{term.title | slugify}}');
+            </script>
           </figure>
           <div class="media-content">
             <div class="content">
               <p>
-                <a href="{{ term.url }}">
+                <a href="{{ term.url | prepend: site.baseurl }}">
                   <strong>{{ term.title }}</strong> <small>{{ term.alternatives | join:", "}}</small>
                 </a>
                 <br>
-                {{ term.content | truncate: 40 }}
+                {{ term.excerpt }}
               </p>
             </div>
-            <nav class="level is-mobile">
-              <div class="level-left">
-                <a class="level-item">
-                  <span class="icon is-small"><i class="fas fa-reply"></i></span>
-                </a>
-                <a class="level-item">
-                  <span class="icon is-small"><i class="fas fa-retweet"></i></span>
-                </a>
-                <a class="level-item">
-                  <span class="icon is-small"><i class="fas fa-heart"></i></span>
-                </a>
-              </div>
-            </nav>
-          </div>
-          <div class="media-right">
-            <button class="delete"></button>
           </div>
         </article>
-        <li>
-          <span class="post-meta">{{ term.date | date: "%b %-d, %Y" }}</span>
-
-          <h2>
-            <a class="post-link" href="{{ term.url | relative_url }}">{{ term.title | escape }}</a>
-          </h2>
-        </li>
       {% endfor %}
     </div>
   </div>

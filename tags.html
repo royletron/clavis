@@ -4,12 +4,14 @@ permalink: /tags/
 title: Tags
 ---
 
-{% for term in site.tags %}
-<li>
-  <span class="post-meta">{{ term.date | date: "%b %-d, %Y" }}</span>
-
-  <h2>
-    <a class="post-link" href="{{ term.url | relative_url }}">{{ term.title | escape }}</a>
-  </h2>
-</li>
-{% endfor %}
+<div class="container">
+  <section class="section">
+    <div class="content">
+      {% for term in site.tags %}
+      <h2>
+        <a class="post-link" href="{{ term.url | relative_url }}">{{ term.title | escape }}</a>
+      </h2>
+      {% endfor %}
+    </div>
+  </section>
+</div>
