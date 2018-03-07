@@ -17,8 +17,8 @@ title: clavis
 email: your-email@domain.com
 description: > # this means to ignore newlines until "baseurl:"
   What is Travis? Consult the clavis.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://nirgn975.github.io/royletron" # the base hostname & protocol for your site
+baseurl: "/clavis" # the subpath of your site, e.g. /blog
+url: "https://royletron.github.io/clavis" # the base hostname & protocol for your site
 twitter_username: royletron
 github_username:  royletron
 
