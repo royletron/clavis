@@ -1,2 +1,3 @@
 # clavis
-What is Travis? Consult the clavis.
+
+> What is Travis? Consult the clavis.
