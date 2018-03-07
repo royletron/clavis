@@ -1,0 +1,35 @@
+---
+layout: default
+---
+
+
+<section class="hero is-info is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        {{ page.title }}
+      </h1>
+      <h2 class="subtitle">
+        {% if page.tags %}<div class="tags">{% for tag in page.tags %}{% assign t = site.tags | where: 'title', tag | first %}{% if t %}<a href="{{ t.url }}" class="tag" style="background-color: {{t.color}}">{{t.title}}</a>{% else %}<span class="tag">{{tag}}</span>{% endif %}{% endfor %}</div>{% endif %}
+      </h2>
+    </div>
+  </div>
+</section>
+
+{% if page.alternatives %}
+<section class="hero is-light is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="subtitle">Also known as <em>{{page.alternatives | join:' or '}}</em></h2>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<section class="section">
+  <div class="container">
+    <div class="content">
+      {{ content }}
+    </div>
+  </div>
+</section>
